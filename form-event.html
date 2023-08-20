@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="width:900px; margin: auto;">
+<h1 id="header" style="color:red">Form Event</h1>
+<form onsubmit="formsubmit()">
+  <label>Name</label>
+  <input type="text" name="name" placeholder="Enter Name" id="name" onfocus="fousFunction(this)" onblur="reomvefousFunction(this)" onInput="inputby(this)" onselect="selectFunction(this)"><br><br>
+  <label>Class</label>
+  <input type="text" name="class" placeholder="Enter Class" id="class" onfocus="fousFunction(this)" onblur="reomvefousFunction(this)"><br><br>
+  <label>Email</label>
+  <input type="email" name="email" placeholder="Enter Email" id="email" oninvalid="alert('Please enter correct email id')" onfocus="fousFunction(this)" onblur="reomvefousFunction(this)"><br><br>
+  <label>Country</label>
+  <select id="country" onfocus="fousFunction(this)" onblur="reomvefousFunction(this)" onchange="changesCountry(this)">
+    <option value="">Select Country</option>
+    <option value="India">India</option>
+    <option value="Pakishtan">Pakishtan</option>
+    <option value="USA">USA</option>
+    <option value="UK">UK</option>
+    <option value="Aus">Aus</option>
+    <option value="SW">SW</option>
+    <option value="NZ">NZ</option>
+  </select>
+  <input type="submit" value="Submit">
+</form>  
+<div id="namediv" style="margin-top: 10px; border-top: 1px solid red;"></div>
+<script>
+  function fousFunction(elemnts){
+    // document.getElementById('name').style.background = 'lightgrey';
+    // document.getElementById('class').style.background = 'lightgrey';
+    // document.getElementById('country').style.background = 'lightgrey';
+
+    elemnts.style.background = 'lightgrey';
+    elemnts.style.background = 'lightgrey';
+    elemnts.style.background = 'lightgrey';
+}
+
+function reomvefousFunction(elemnts){
+    elemnts.style.background = '';
+    elemnts.style.background = '';
+    elemnts.style.background = '';
+}
+
+function inputby(elemnts)
+{
+  var x = elemnts.value;
+  document.getElementById('namediv').innerHTML=x;
+}
+
+function changesCountry(elemnts){
+  var x = elemnts.value;
+  document.getElementById('namediv').innerHTML=x;
+}
+
+function selectFunction(elemnts){
+  alert("All text selected");
+}
+
+function formsubmit(){
+  var x = document.getElementById('name').value;
+  alert(x);
+}
+</script>
+</body>
+</html>
