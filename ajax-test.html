@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body style="width:900px; margin: auto;">
+<h1 id="header" style="color:red">Ajax Test</h1>
+<div id="namediv" style="margin-top: 10px; border-top: 1px solid red;"></div><br>
+<button onclick="getData()">Submit</button>
+<script>
+  function getData(){
+    var xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200){
+            document.getElementById('namediv').innerHTML = this.responseText;//console.log(this.responseText);
+        }else if(this.readyState == 4 && this.status == 404){
+            document.getElementById('namediv').innerHTML = "Data not found";
+        }
+    }
+    xhttp.open('get', "https://jsonplaceholder.typicode.com/posts", true);
+    xhttp.send();
+  }
+</script>
+</body>
+</html>
