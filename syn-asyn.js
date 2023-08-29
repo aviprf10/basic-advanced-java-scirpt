@@ -87,11 +87,42 @@
 // abcd();
 
 //if you add async code so you useing await. don't have any idea response when will come
-async function abcd(){ // this isthen
-   let row = await fetch('https://randomuser.me/api/');
-   let data = await row.json();
-    console.log(data.results[0].email);
+// async function abcd(){ // this isthen
+//    let row = await fetch('https://randomuser.me/api/');
+//    let data = await row.json();
+//     console.log(data.results[0].email);
+    
+// }
+
+// abcd();
+
+// async function test(){
+//     // const abcd = await fetch("https://jsonplaceholder.typicode.com/users");
+//     // const res = await abcd.json();
+//     // return res
+
+//     return (await fetch("https://jsonplaceholder.typicode.com/users")).json(); //customize code
+// }
+
+// test().then((response) => {
+//     console.log(response[0].name)
+// }).catch((error) => {
+//     console.log(error)
+// })
+
+//----TRY and Catch----
+async function test(){ 
+    try{
+        const result = await fetch("https://jsonplaceholder.typicode.com/users");
+        const res = await result.json();
+        return res;
+
+    }catch(error){
+        console.log(error)
+    }
     
 }
 
-abcd();
+test().then((response) => {
+    console.log(response)
+})
